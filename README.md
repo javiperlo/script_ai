@@ -36,11 +36,10 @@ Este proyecto tiene como objetivo identificar a los clientes que están en **rie
 
 No solo creamos un modelo predictivo tradicional. Este proyecto va mucho más allá:
 
-✅ **API REST** desplegable en la nube para predicciones en tiempo real  
+✅ **API REST** desplegable para hacer predicciones en tiempo real  
 ✅ **Dashboard interactivo** para visualizar clientes en riesgo  
 ✅ **Generación automática de guiones** de retención personalizados con IA  
 ✅ **Arquitectura escalable** con Docker y FastAPI  
-✅ **Pipeline completo** desde datos crudos hasta producción  
 
 ---
 
