@@ -188,6 +188,26 @@ curl -X POST "http://localhost:8000/predict" \
   "umbral_utilizado": 0.65
 }
 ```
+### Endpoint: Predicción de Churn
+
+**POST** `/generate_script`
+
+```bash
+curl -X POST "http://localhost:8000/generate_script" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "nombre": "",
+    "edad": 0,
+    "probabilidad_churn": "No",
+  }'
+```
+
+**Respuesta**
+```json
+{
+  "guion": "" 
+}
+```
 
 ---
 
