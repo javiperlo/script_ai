@@ -13,12 +13,12 @@ Este proyecto tiene como objetivo identificar a los clientes que están en **rie
 
 Para el desarrollo del proyecto se ha seguido la metodología **CRISP-DM**, la cual consta de 6 fases:
 
-1. **Entendimiento del negocio**
-2. **Entendimiento de los datos**
-3. **Preparación de los datos**
-4. **Modelado**
-5. **Evaluación**
-6. **Despliegue**
+1. [**Entendimiento del negocio**](documentation/data_analysis.ipynb)
+2. [**Entendimiento de los datos**](documentation/data_analysis.ipynb)
+3. [**Preparación de los datos**](documentation/model_creation.ipynb)
+4. [**Modelado**](documentation/model_creation.ipynb)
+5. [**Evaluación**](documentation/model_creation.ipynb)
+6. [**Despliegue**](documentation/model_creation.ipynb)
 
 ---
 
