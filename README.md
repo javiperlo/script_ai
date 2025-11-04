@@ -19,8 +19,8 @@
 
 **Sistema inteligente para predecir y prevenir el abandono de clientes mediante Machine Learning e IA Generativa**
 
-[Características](#-características-principales) •
-[Tecnologías](#-stack-tecnológico) •
+[Características](#-descripción-del-proyecto) •
+[Tecnologías](#-stack-Tecnológico) •
 [Instalación](#-instalación-y-ejecución) •
 [Documentación](#-metodología-crisp-dm)
 
