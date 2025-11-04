@@ -18,6 +18,7 @@ load_dotenv()
 warnings.filterwarnings('ignore')
 app = FastAPI(title="API | Tarea CHURN")
 MODEL_PATH = "models/modelo_xgb.joblib"
+<<<<<<< HEAD
 
 # Ruta absoluta a tu carpeta frontend
 frontend_dir = os.path.join(os.path.dirname(__file__), "..", "frontend")
@@ -25,6 +26,8 @@ frontend_dir = os.path.join(os.path.dirname(__file__), "..", "frontend")
 # Montar los archivos estáticos (CSS, JS, imágenes)
 static_dir = os.path.join(frontend_dir, "static")
 app.mount("/static", StaticFiles(directory=static_dir), name="static")
+=======
+>>>>>>> 2c196e8 (Subidos notebooks)
 
 genai.configure(api_key=os.getenv("GEMINI_API"))
 
@@ -40,11 +43,11 @@ app.add_middleware(
 )
 
 # Servir carpeta /frontend
-app.mount("/static", StaticFiles(directory="frontend"), name="static")
+app.mount("/static", StaticFiles(directory="../frontend"), name="static")
 
 @app.get("/")
 async def serve_frontend():
-    return FileResponse(os.path.join("frontend", "index.html"))
+    return FileResponse(os.path.join("../frontend", "index.html"))
 
 # --- 2. Cargar Modelo (Solo al inicio) ---
 @app.on_event("startup")
