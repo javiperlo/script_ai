@@ -1,4 +1,3 @@
-=======
 # 📞 Script AI - Predicción de Churn + Generación de Guiones con IA
 
 <div align="center">
@@ -65,8 +64,6 @@ El desarrollo del proyecto sigue la metodología **CRISP-DM** (Cross-Industry St
   <img src="documentation/imgs/EsquemaProyectoDibujo_mejorado.png" alt="Arquitectura del sistema"/>
 </p>
 
-=======
-
 El sistema consta de tres componentes principales:
 
 1. **📊 Modelo ML**: XGBoost entrenado para predecir probabilidad de churn
@@ -102,7 +99,6 @@ Asegúrate de tener instalado:
 - **Git**
 
 ### 🚀 Opción 1: Ejecutar con Docker (Recomendado)
-=======
 # 📞 Script AI — Predicción de Churn + Generación de Guiones con IA
 
 Este proyecto tiene como objetivo identificar a los clientes que están en **riesgo de abandonar el servicio** en un futuro cercano para poder ofrecerles **incentivos personalizados** (descuentos, mejoras de servicios, etc.) antes de que tomen la decisión de irse.
