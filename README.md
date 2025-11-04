@@ -59,17 +59,6 @@ El desarrollo del proyecto sigue la metodología **CRISP-DM** (Cross-Industry St
 
 ---
 
-## 🛠️ Stack Tecnológico
-
-| **Categoría** | **Tecnologías** | **Descripción** |
-|----------------|-----------------|-----------------|
-| **Backend & API** | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="40" alt="Python"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" width="40" alt="FastAPI"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" width="40" alt="Docker"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/uvicorn/uvicorn-original.svg" width="40" alt="Uvicorn"/> | **Python 3.11** como lenguaje principal.<br>**FastAPI** para desarrollo de API REST.<br>**Docker** para contenedorización.<br>**Uvicorn** como servidor ASGI. |
-| **Machine Learning** | <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" width="60" alt="Scikit-Learn"/> <img src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Knime-logo.png" width="60" alt="KNIME"/> <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/XGBoost_logo.png" width="60" alt="XGBoost"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" width="40" alt="Pandas"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" width="40" alt="NumPy"/> | **Scikit-Learn** para preprocesamiento y pipelines.<br>**XGBoost** como modelo principal de predicción.<br>**Pandas** y **NumPy** para análisis de datos.<br>**Joblib** para serialización del modelo.<br>**KNIME** como entorno visual de modelado. |
-| **Frontend** | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" width="40" alt="HTML5"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="40" alt="JavaScript"/> | **HTML5** para la estructura del dashboard.<br>**JavaScript (ES6+)** para la lógica y consumo de la API. |
-| **Herramientas de Desarrollo** | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" width="40" alt="Git"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg" width="40" alt="Jupyter"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" width="40" alt="VSCode"/> | **Git** para control de versiones.<br>**Jupyter Notebook** para análisis exploratorio.<br>**VS Code** como entorno de desarrollo principal. |
-
-___
-
 ## 🧩 Arquitectura del Sistema
 
 <p align="center">
@@ -190,6 +179,17 @@ curl -X POST "http://localhost:8000/generate_script" \
 | **ROC-AUC** | 0.87 |
 
 ---
+
+## 🛠️ Stack Tecnológico
+
+| **Categoría** | **Tecnologías** | **Descripción** |
+|----------------|-----------------|-----------------|
+| **Backend & API** | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="40" alt="Python"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" width="40" alt="FastAPI"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" width="40" alt="Docker"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/uvicorn/uvicorn-original.svg" width="40" alt="Uvicorn"/> | **Python 3.11** como lenguaje principal.<br>**FastAPI** para desarrollo de API REST.<br>**Docker** para contenedorización.<br>**Uvicorn** como servidor ASGI. |
+| **Machine Learning** | <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" width="60" alt="Scikit-Learn"/> <img src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Knime-logo.png" width="60" alt="KNIME"/> <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/XGBoost_logo.png" width="60" alt="XGBoost"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" width="40" alt="Pandas"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" width="40" alt="NumPy"/> | **Scikit-Learn** para preprocesamiento y pipelines.<br>**XGBoost** como modelo principal de predicción.<br>**Pandas** y **NumPy** para análisis de datos.<br>**Joblib** para serialización del modelo.<br>**KNIME** como entorno visual de modelado. |
+| **Frontend** | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" width="40" alt="HTML5"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="40" alt="JavaScript"/> | **HTML5** para la estructura del dashboard.<br>**JavaScript (ES6+)** para la lógica y consumo de la API. |
+| **Herramientas de Desarrollo** | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" width="40" alt="Git"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg" width="40" alt="Jupyter"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" width="40" alt="VSCode"/> | **Git** para control de versiones.<br>**Jupyter Notebook** para análisis exploratorio.<br>**VS Code** como entorno de desarrollo principal. |
+
+___
 
 ## 📄 Licencia
 
