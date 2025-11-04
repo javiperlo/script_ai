@@ -200,7 +200,7 @@ Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) par
 ## 🙏 Agradecimientos
 
 - Dataset: [Telco Customer Churn - Kaggle](https://www.kaggle.com/datasets/blastchar/telco-customer-churn)
-- Inspiración: Proyecto del Máster en Data Science de ENAE Business School
+- Trabajo: Proyecto de la asignatura de Fundamentos de Data Science de ENAE Business School
 
 ---
 
