@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Call Center AI</title>
+
+</head>
+
+<body>
+    <div class="header">
+        <h1>📞 Call Center AI</h1>
+        <p>Clientes con riesgo de abandono</p>
+    </div>
+
+    <div id="loading" class="loading">Cargando clientes...</div>
+
+    <div id="grid" class="grid"></div>
+
+    <script>
+        const API = 'http://localhost:8000';
+        const clientes = [
+            {
+                nombre: "Pepe García",
+                datos: {
+                    gender: "Female",
+                    SeniorCitizen: 0,
+                    Partner: "No",
+                    Dependents: "No",
+                    tenure: 11,
+                    PhoneService: "Yes",
+                    MultipleLines: "Yes",
+                    InternetService: "Fiber optic",
+                    OnlineSecurity: "No",
+                    OnlineBackup: "No",
+                    DeviceProtection: "Yes",
+                    TechSupport: "No",
+                    StreamingTV: "Yes",
+                    StreamingMovies: "Yes",
+                    Contract: "Month-to-month",
+                    PaperlessBilling: "Yes",
+                    PaymentMethod: "Bank transfer (automatic)",
+                    MonthlyCharges: 97.85,
+                    TotalCharges: 1105.4
+                }
+            },
+            {
+                nombre: "Ana Rodríguez",
+                datos: {
+                    gender: "Female",
+                    SeniorCitizen: 0,
+                    Partner: "No",
+                    Dependents: "Yes",
+                    tenure: 3,
+                    PhoneService: "Yes",
+                    MultipleLines: "No",
+                    InternetService: "DSL",
+                    OnlineSecurity: "Yes",
+                    OnlineBackup: "No",
+                    DeviceProtection: "No",
+                    TechSupport: "Yes",
+                    StreamingTV: "No",
+                    StreamingMovies: "Yes",
+                    Contract: "Month-to-month",
+                    PaperlessBilling: "Yes",
+                    PaymentMethod: "Bank transfer (automatic)",
+                    MonthlyCharges: 64.5,
+                    TotalCharges: 177.4
+                }
+            },
+            {
+                nombre: "María Sánchez",
+                datos: {
+                    gender: "Female",
+                    SeniorCitizen: 0,
+                    Partner: "No",
+                    Dependents: "No",
+                    tenure: 1,
+                    PhoneService: "Yes",
+                    MultipleLines: "No",
+                    InternetService: "DSL",
+                    OnlineSecurity: "No",
+                    OnlineBackup: "No",
+                    DeviceProtection: "No",
+                    TechSupport: "No",
+                    StreamingTV: "No",
+                    StreamingMovies: "No",
+                    Contract: "Month-to-month",
+                    PaperlessBilling: "No",
+                    PaymentMethod: "Mailed check",
+                    MonthlyCharges: 45.3,
+                    TotalCharges: 45.3
+                }
+            }
+        ];
+
+        function cargar() {
+            const grid = document.getElementById("grid");
+            document.getElementById("loading").style.display = "none";
+
+            clientes.forEach((cliente, index) => {
+                fetch(`${API}/predict`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(cliente.datos)
+                })
+                .then(res => res.json())
+                .then(pred => {
+                    const prob = pred.probabilidad_churn;
+                    let nivel = "bajo";
+
+                    if (prob > 0.65) nivel = "alto";
+                    else if (prob > 0.45) nivel = "medio";
+
+                    const card = document.createElement("div");
+                    card.className = `card ${nivel}`;
+
+                    card.innerHTML = `
+                        <h3>${cliente.nombre}</h3>
+                        <span class="badge ${nivel}">${nivel.toUpperCase()}</span>
+                        <div class="prob">${(prob * 100).toFixed(1)}%</div>
+                        <p><strong>Contrato:</strong> ${cliente.datos.Contract}</p>
+                        <p><strong>Meses:</strong> ${cliente.datos.tenure}</p>
+                        <p><strong>Cargo:</strong> $${cliente.datos.MonthlyCharges}</p>
+                        <button class="btn-llamar">📞 Llamar</button>
+                        <button class="btn-guion">Generar Guión</button>
+                        <div class="guion" id="guion-${index}">Generando guión...</div>
+                    `;
+
+                    grid.appendChild(card);
+
+                    const botonGuion = card.querySelector(".btn-guion");
+                    botonGuion.addEventListener("click", async () => {
+                        const divGuion = document.getElementById(`guion-${index}`);
+                        divGuion.style.display = "block";
+                        divGuion.innerHTML = "✏️ Generando guión personalizado...";
+
+                        try {
+                            const res = await fetch(`${API}/generate_script`, {
+                                method: "POST",
+                                headers: { "Content-Type": "application/json" },
+                                body: JSON.stringify({
+                                    nombre: cliente.nombre,
+                                    edad: cliente.edad || 35,
+                                    probabilidad_churn: prob
+                                })
+                            });
+
+                            if (!res.ok) throw new Error(`Error ${res.status}`);
+
+                            const data = await res.json();
+                            divGuion.innerHTML = `
+                                <strong>💬 Guión para ${cliente.nombre}:</strong><br><br>
+                                ${data.guion.replace(/\n/g, "<br>")}
+                            `;
+                        } catch (error) {
+                            console.error("Error generando el guión:", error);
+                            divGuion.innerHTML = "❌ Error generando el guión. Intenta de nuevo.";
+                        }
+                    });
+                })
+                .catch(err => console.error("Error con " + cliente.nombre, err));
+            });
+        }
+
+        cargar();
+    </script>
+</body>
+</html>

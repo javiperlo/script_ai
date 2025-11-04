@@ -1,0 +1,19 @@
+# Ignorar archivos de entorno
+.env
+
+# Carpeta de dependencias locales
+__pycache__/
+*.pyc
+
+# Archivos de entorno virtual
+.env/
+.venv/
+venv/
+
+# Archivos de VSCode o IDEs
+.vscode/
+.idea/
+
+# Archivos temporales o de sistema
+.DS_Store
+Thumbs.db
