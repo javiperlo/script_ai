@@ -76,7 +76,7 @@ El desarrollo del proyecto sigue la metodología **CRISP-DM** (Cross-Industry St
 ### Machine Learning
 <div>
   <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" width="70" height="50" alt="Scikit-Learn"/>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/KNIME_Logo.svg/320px-KNIME_Logo.svg.png" width="70" height="50" alt="Knime"/>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Knime-logo.png" width="70" height="50" alt="Knime"/>
 </div>
 
 - **Scikit-Learn** - Preprocessing y pipelines
