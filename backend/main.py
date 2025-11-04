@@ -1,7 +1,6 @@
 import joblib
 import pandas as pd
-import requests
-from fastapi import FastAPI, HTTPException, Request
+from fastapi import FastAPI, HTTPException
 from fastapi.responses import HTMLResponse  
 from pydantic import BaseModel
 from dotenv import load_dotenv
@@ -14,23 +13,18 @@ from fastapi.responses import FileResponse
 
 load_dotenv()
 
-# --- 1. Setup ---
 warnings.filterwarnings('ignore')
 app = FastAPI(title="API | Tarea CHURN")
 
-# ✅ Rutas absolutas desde el directorio de trabajo del contenedor
-# WORKDIR es /app, así que los paths son relativos a /app
 MODEL_PATH = "backend/models/modelo_xgb.joblib"
 FRONTEND_DIR = "frontend"
 STATIC_DIR = os.path.join(FRONTEND_DIR, "static")
 
-# Configurar Gemini
 genai.configure(api_key=os.getenv("GEMINI_API"))
 
 modelo_cargado = None
 columnas_modelo = None
 
-# CORS
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -39,12 +33,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# ✅ Montar archivos estáticos UNA SOLA VEZ
-# Si tienes carpeta static/ dentro de frontend/
 if os.path.exists(STATIC_DIR):
     app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 
-# --- 2. Cargar Modelo (Solo al inicio) ---
 @app.on_event("startup")
 def cargar_modelo():
     global modelo_cargado, columnas_modelo
@@ -60,7 +51,6 @@ def cargar_modelo():
     except AttributeError:
         raise RuntimeError("Error: El modelo no tiene 'feature_names_in_'.")
 
-# --- 3. Ruta raíz sirve el frontend ---
 @app.get("/", response_class=HTMLResponse)
 async def serve_frontend():
     index_path = os.path.join(FRONTEND_DIR, "index.html")
@@ -90,10 +80,6 @@ class DatosCliente(BaseModel):
     MonthlyCharges: float
     TotalCharges: float | str
     
-    class Config:
-        extra = 'ignore'
-
-# --- 5. Endpoint de Predicción ---
 @app.post("/predict")
 async def predecir(datos: DatosCliente):
     if modelo_cargado is None:
@@ -103,7 +89,6 @@ async def predecir(datos: DatosCliente):
         cliente_df = pd.DataFrame([datos.model_dump()])
         df_procesado = cliente_df.copy()
 
-        # Preprocesamiento
         df_procesado['TotalCharges'] = pd.to_numeric(df_procesado['TotalCharges'], errors='coerce').fillna(0)
 
         map_yes_no = {'Yes': 1, 'No': 0}
@@ -137,11 +122,16 @@ async def predecir(datos: DatosCliente):
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error en la predicción: {e}")
 
-# --- 6. Endpoint de Script IA ---
+# Aquí creamos el modelo de Cliente y los datos que recibirá
+# Tengo que mejorarlo el prompt y el objeto en sí aun
+
 class Cliente(BaseModel):
     nombre: str
     edad: int
     probabilidad_churn: float
+    
+
+# Creamos el endpoint que recibirá el json
 
 @app.post("/generate_script")
 async def generate_script(cliente: Cliente):
