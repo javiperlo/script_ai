@@ -59,6 +59,30 @@ El desarrollo del proyecto sigue la metodología **CRISP-DM** (Cross-Industry St
 
 ---
 
+## 📁 Estructura del Proyecto
+
+```
+script_ai/
+├── 📂 backend/
+│   ├── main.py                 # API FastAPI
+│   ├── models/
+│   │   └── modelo_xgb.joblib   # Modelo entrenado
+│   ├── requirements.txt
+│   └── Dockerfile
+├── 📂 frontend/
+│   └── index.html              # Dashboard
+├── 📂 documentation/
+│   ├── data_analysis.ipynb     # Análisis exploratorio
+│   ├── model_creation.ipynb    # Creación del modelo
+│   └── imgs/                   # Imágenes del proyecto
+├── 📂 data/
+│   └── telco_churn.csv         # Dataset original
+├── docker-compose.yml
+└── README.md
+```
+
+---
+
 ## 🛠️ Stack Tecnológico
 
 ### Backend & API
@@ -211,29 +235,6 @@ curl -X POST "http://localhost:8000/generate_script" \
 
 ---
 
-## 📁 Estructura del Proyecto
-
-```
-script_ai/
-├── 📂 backend/
-│   ├── main.py                 # API FastAPI
-│   ├── models/
-│   │   └── modelo_xgb.joblib   # Modelo entrenado
-│   ├── requirements.txt
-│   └── Dockerfile
-├── 📂 frontend/
-│   └── index.html              # Dashboard
-├── 📂 documentation/
-│   ├── data_analysis.ipynb     # Análisis exploratorio
-│   ├── model_creation.ipynb    # Creación del modelo
-│   └── imgs/                   # Imágenes del proyecto
-├── 📂 data/
-│   └── telco_churn.csv         # Dataset original
-├── docker-compose.yml
-└── README.md
-```
-
----
 
 ## 📊 Métricas del Modelo
 
