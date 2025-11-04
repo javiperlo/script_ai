@@ -17,33 +17,32 @@ load_dotenv()
 # --- 1. Setup ---
 warnings.filterwarnings('ignore')
 app = FastAPI(title="API | Tarea CHURN")
-MODEL_PATH = "models/modelo_xgb.joblib"
 
-# Ruta absoluta a tu carpeta frontend
-frontend_dir = os.path.join(os.path.dirname(__file__), "..", "frontend")
+# ✅ Rutas absolutas desde el directorio de trabajo del contenedor
+# WORKDIR es /app, así que los paths son relativos a /app
+MODEL_PATH = "backend/models/modelo_xgb.joblib"
+FRONTEND_DIR = "frontend"
+STATIC_DIR = os.path.join(FRONTEND_DIR, "static")
 
-# Montar los archivos estáticos (CSS, JS, imágenes)
-static_dir = os.path.join(frontend_dir, "static")
-app.mount("/static", StaticFiles(directory=static_dir), name="static")
+# Configurar Gemini
 genai.configure(api_key=os.getenv("GEMINI_API"))
 
 modelo_cargado = None
-columnas_modelo = None # Lista de TODAS las columnas que el modelo espera
+columnas_modelo = None
 
+# CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Permite peticiones desde cualquier origen
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Servir carpeta /frontend
-app.mount("/static", StaticFiles(directory="../frontend"), name="static")
-
-@app.get("/")
-async def serve_frontend():
-    return FileResponse(os.path.join("../frontend", "index.html"))
+# ✅ Montar archivos estáticos UNA SOLA VEZ
+# Si tienes carpeta static/ dentro de frontend/
+if os.path.exists(STATIC_DIR):
+    app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 
 # --- 2. Cargar Modelo (Solo al inicio) ---
 @app.on_event("startup")
@@ -56,63 +55,64 @@ def cargar_modelo():
     modelo_cargado = joblib.load(MODEL_PATH)
     
     try:
-        # Esto es vital: obtenemos la lista de todas las columnas del modelo
         columnas_modelo = modelo_cargado.feature_names_in_
-        print(f"Modelo cargado. Espera {len(columnas_modelo)} columnas.")
+        print(f"✅ Modelo cargado. Espera {len(columnas_modelo)} columnas.")
     except AttributeError:
-        raise RuntimeError("Error: El modelo no tiene 'feature_names_in_'. No se puede alinear.")
+        raise RuntimeError("Error: El modelo no tiene 'feature_names_in_'.")
 
-# --- 3. Definir Entrada (¡TODAS las 19 columnas crudas!) ---
+# --- 3. Ruta raíz sirve el frontend ---
+@app.get("/", response_class=HTMLResponse)
+async def serve_frontend():
+    index_path = os.path.join(FRONTEND_DIR, "index.html")
+    if not os.path.exists(index_path):
+        raise HTTPException(status_code=404, detail="index.html no encontrado")
+    return FileResponse(index_path)
+
+# --- 4. Definir Entrada ---
 class DatosCliente(BaseModel):
-    gender: str                 # 'Female', 'Male'
-    SeniorCitizen: int          # 0, 1
-    Partner: str                # 'Yes', 'No'
-    Dependents: str             # 'Yes', 'No'
-    tenure: int                 # 1, 34, 45...
-    PhoneService: str           # 'Yes', 'No'
-    MultipleLines: str          # 'No phone service', 'No', 'Yes'
-    InternetService: str        # 'DSL', 'Fiber optic', 'No'
-    OnlineSecurity: str         # 'No', 'Yes', 'No internet service'
-    OnlineBackup: str           # 'Yes', 'No', 'No internet service'
-    DeviceProtection: str       # 'No', 'Yes', 'No internet service'
-    TechSupport: str            # 'No', 'Yes', 'No internet service'
-    StreamingTV: str            # 'No', 'Yes', 'No internet service'
-    StreamingMovies: str        # 'No', 'Yes', 'No internet service'
-    Contract: str               # 'Month-to-month', 'One year', 'Two year'
-    PaperlessBilling: str       # 'Yes', 'No'
-    PaymentMethod: str          # 'Electronic check', 'Mailed check', ...
-    MonthlyCharges: float       # 29.85, 56.95,...
-    TotalCharges: float | str   # Acepta float o string (ej. " " o "29.85")
+    gender: str
+    SeniorCitizen: int
+    Partner: str
+    Dependents: str
+    tenure: int
+    PhoneService: str
+    MultipleLines: str
+    InternetService: str
+    OnlineSecurity: str
+    OnlineBackup: str
+    DeviceProtection: str
+    TechSupport: str
+    StreamingTV: str
+    StreamingMovies: str
+    Contract: str
+    PaperlessBilling: str
+    PaymentMethod: str
+    MonthlyCharges: float
+    TotalCharges: float | str
     
     class Config:
-        extra = 'ignore' # Ignora campos extra si el usuario los envía
+        extra = 'ignore'
 
-
-# --- 4. Endpoint de Predicción ---
-@app.post("/predict") # Cambiado de /predict_simple a /predict
-async def predecir(datos: DatosCliente): # Cambiado de DatosSencillos a DatosCliente
+# --- 5. Endpoint de Predicción ---
+@app.post("/predict")
+async def predecir(datos: DatosCliente):
     if modelo_cargado is None:
         raise HTTPException(status_code=500, detail="El modelo no está cargado.")
 
     try:
-        # a. Convertir datos de Pydantic a DataFrame de 1 fila
         cliente_df = pd.DataFrame([datos.model_dump()])
-        
-        # b. ¡AQUÍ VA EL PREPROCESAMIENTO COMPLETO!
         df_procesado = cliente_df.copy()
 
-        # b1. Manejar 'TotalCharges' (convertir " " a 0)
+        # Preprocesamiento
         df_procesado['TotalCharges'] = pd.to_numeric(df_procesado['TotalCharges'], errors='coerce').fillna(0)
 
-        # b2. Mapear columnas binarias (Yes/No y Gender)
         map_yes_no = {'Yes': 1, 'No': 0}
         df_procesado['Partner'] = df_procesado['Partner'].map(map_yes_no)
         df_procesado['Dependents'] = df_procesado['Dependents'].map(map_yes_no)
         df_procesado['PhoneService'] = df_procesado['PhoneService'].map(map_yes_no)
         df_procesado['PaperlessBilling'] = df_procesado['PaperlessBilling'].map(map_yes_no)
-        df_procesado['gender'] = df_procesado['gender'].map({'Female': 0, 'Male': 1}) # Asumiendo Female=0
+        df_procesado['gender'] = df_procesado['gender'].map({'Female': 0, 'Male': 1})
 
-        # b3. Crear Variables Dummy (One-Hot Encoding)
         columnas_dummies = [
             'MultipleLines', 'InternetService', 'OnlineSecurity', 'OnlineBackup',
             'DeviceProtection', 'TechSupport', 'StreamingTV', 'StreamingMovies',
@@ -120,20 +120,13 @@ async def predecir(datos: DatosCliente): # Cambiado de DatosSencillos a DatosCli
         ]
         df_procesado = pd.get_dummies(df_procesado, columns=columnas_dummies)
         
-        # c. ¡EL TRUCO! Crear el DataFrame completo que el modelo espera
-        #    Rellena con 0 las columnas que el cliente no tiene
         cliente_df_final = df_procesado.reindex(columns=columnas_modelo, fill_value=0)
 
-        # d. Hacer la predicción
         probabilidades = modelo_cargado.predict_proba(cliente_df_final)
-        prob_churn = probabilidades[0][1] # Probabilidad de Churn (Clase 1)
+        prob_churn = probabilidades[0][1]
 
-        # e. Devolver el resultado (con tu lógica de umbral)
-        
-        THREESHOLD = 0.65 # Puedes ajustar este umbral de negocio
-        churn = False
-        if float(prob_churn) > THREESHOLD:
-            churn = True
+        THREESHOLD = 0.65
+        churn = float(prob_churn) > THREESHOLD
         
         return {
             "probabilidad_churn": float(round(prob_churn, 4)),
@@ -143,12 +136,12 @@ async def predecir(datos: DatosCliente): # Cambiado de DatosSencillos a DatosCli
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error en la predicción: {e}")
-    
-# Modelo de entrada
+
+# --- 6. Endpoint de Script IA ---
 class Cliente(BaseModel):
     nombre: str
     edad: int
-    probabilidad_churn: float  # 👈 ahora añadimos también este campo
+    probabilidad_churn: float
 
 @app.post("/generate_script")
 async def generate_script(cliente: Cliente):
@@ -156,7 +149,6 @@ async def generate_script(cliente: Cliente):
     edad = cliente.edad
     prob = cliente.probabilidad_churn
 
-    # Definir tono según el riesgo de churn
     if prob > 0.65:
         tono = "urgente y muy persuasivo"
         enfoque = "ofrece descuentos exclusivos y beneficios fuertes"
@@ -167,7 +159,6 @@ async def generate_script(cliente: Cliente):
         tono = "relajado y de agradecimiento"
         enfoque = "refuerza la satisfacción del cliente y su buena decisión"
 
-    # Prompt dinámico para Gemini
     prompt = f"""
     Añade como header: {prob} en porcentaje. De la siguiente manera. Posibilidad CHURN: 83% (por) 
     Eres un asistente experto en retención de clientes para un call center de telecomunicaciones.
@@ -191,7 +182,6 @@ async def generate_script(cliente: Cliente):
     Que {nombre} sienta que quedarse con la empresa es su mejor opción y se sienta valorado.
     """
 
-    # Generar contenido con Gemini
     model = genai.GenerativeModel("gemini-2.5-pro")
     response = model.generate_content(prompt)
 

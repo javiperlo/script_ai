@@ -11,14 +11,14 @@ WORKDIR /app
 # Copia SÓLO el archivo de requisitos primero.
 # Esto aprovecha la caché de Docker: si no cambias las librerías,
 # no se volverán a instalar cada vez, haciendo builds más rápidos.
-COPY backend/requirements.txt .
+COPY backend/requirements.txt ./backend/requirements.txt
 
 # Instala las librerías de Python
 # --no-cache-dir crea una imagen un poco más ligera
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r backend/requirements.txt
 
-COPY backend/ .
-
+COPY backend ./backend
+COPY frontend ./frontend
 # --- Fase 4: Copiar tu Aplicación ---
 # Ahora copia el resto de tu proyecto (tu código, la carpeta models)
 # al directorio /app dentro del contenedor
