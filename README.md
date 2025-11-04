@@ -59,7 +59,7 @@ El desarrollo del proyecto sigue la metodología **CRISP-DM** (Cross-Industry St
 
 ---
 
-# 🛠️ Stack Tecnológico
+## 🛠️ Stack Tecnológico
 
 | **Categoría** | **Tecnologías** | **Descripción** |
 |----------------|-----------------|-----------------|
