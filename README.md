@@ -31,7 +31,7 @@ Con esa predicción, **Gemini** generará automáticamente una **campaña public
 La estructura conceptual del sistema es la siguiente:
 
 <p align="center">
-  <img src="imgs/EsquemaProyectoDibujo_mejorado.png" width="600" />
+  <img src="documentation/imgs/EsquemaProyectoDibujo_mejorado.png" width="600" />
 </p>
 
 ---
