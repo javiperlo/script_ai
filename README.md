@@ -188,7 +188,7 @@ curl -X POST "http://localhost:8000/predict" \
   "umbral_utilizado": 0.65
 }
 ```
-### Endpoint: Predicción de Churn
+### Endpoint: Generar Script con Gemini
 
 **POST** `/generate_script`
 
