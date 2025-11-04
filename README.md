@@ -224,14 +224,6 @@ script_ai/
 
 ---
 
-## 👨‍💻 Autor
-
-**Tu Nombre**
-- GitHub: [@tuusuario](https://github.com/tuusuario)
-- LinkedIn: [Tu Perfil](https://linkedin.com/in/tuperfil)
-
----
-
 ## 📄 Licencia
 
 Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
@@ -247,7 +239,7 @@ Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) par
 
 <div align="center">
 
-**⭐ Si te ha gustado el proyecto, dale una estrella!**
+**👨‍💻 Desarrollado por [@javiperlo](https://github.com/javiperlo)**
 
 Made with ❤️ and ☕
 
