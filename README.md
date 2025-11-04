@@ -114,20 +114,6 @@ El sistema consta de tres componentes principales:
 
 ---
 
-
-
-## ✨ Características Principales
-
-- 🎯 **Predicción en tiempo real** de probabilidad de churn
-- 📊 **Dashboard interactivo** con visualización de clientes en riesgo
-- 🎨 **Clasificación automática** por niveles de riesgo (alto/medio/bajo)
-- 🤖 **Generación de guiones** de retención personalizados (próximamente con IA)
-- 📱 **API RESTful** documentada automáticamente con OpenAPI
-- 🐳 **Dockerizado** para fácil despliegue
-- 🔄 **Pipeline completo** de preprocesamiento incluido
-
----
-
 ## 📦 Instalación y Ejecución
 
 ### Prerrequisitos
