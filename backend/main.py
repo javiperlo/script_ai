@@ -16,8 +16,8 @@ load_dotenv()
 
 # --- 1. Setup ---
 warnings.filterwarnings('ignore')
-app = FastAPI(title="API Completa de Churn (con Preprocesamiento)")
-MODEL_PATH = "backend/models/modelo_xgb.joblib"
+app = FastAPI(title="API | Tarea CHURN")
+MODEL_PATH = "models/modelo_xgb.joblib"
 
 genai.configure(api_key=os.getenv("GEMINI_API"))
 
@@ -33,11 +33,11 @@ app.add_middleware(
 )
 
 # Servir carpeta /frontend
-app.mount("/static", StaticFiles(directory="frontend"), name="static")
+app.mount("/static", StaticFiles(directory="../frontend"), name="static")
 
 @app.get("/")
 async def serve_frontend():
-    return FileResponse(os.path.join("frontend", "index.html"))
+    return FileResponse(os.path.join("../frontend", "index.html"))
 
 # --- 2. Cargar Modelo (Solo al inicio) ---
 @app.on_event("startup")
