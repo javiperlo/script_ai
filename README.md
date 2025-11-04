@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+=======
 # 📞 Script AI - Predicción de Churn + Generación de Guiones con IA
 
 <div align="center">
@@ -65,6 +65,26 @@ El desarrollo del proyecto sigue la metodología **CRISP-DM** (Cross-Industry St
   <img src="documentation/imgs/EsquemaProyectoDibujo_mejorado.png" alt="Arquitectura del sistema"/>
 </p>
 
+=======
+
+El sistema consta de tres componentes principales:
+
+1. **📊 Modelo ML**: XGBoost entrenado para predecir probabilidad de churn
+2. **🔌 API REST**: FastAPI que expone endpoints para predicciones
+3. **💻 Dashboard**: Interfaz web para visualizar clientes en riesgo
+
+---
+
+## 📦 Instalación y Ejecución
+
+### Prerrequisitos
+
+Asegúrate de tener instalado:
+- **Docker** (versión 20.0 o superior)
+- **Git**
+
+### 🚀 Opción 1: Ejecutar con Docker (Recomendado)
+
 El sistema consta de tres componentes principales:
 
 1. **📊 Modelo ML**: XGBoost entrenado para predecir probabilidad de churn
@@ -114,7 +134,6 @@ Con esa predicción, **Gemini** generará automáticamente una **campaña public
 ## 🧩 Arquitectura general del proyecto
 
 La estructura conceptual del sistema es la siguiente:
->>>>>>> 2c196e8 (Subidos notebooks)
 
 <p align="center">
   <img src="imgs/EsquemaProyectoDibujo_mejorado.png" width="600" />
@@ -126,7 +145,7 @@ La estructura conceptual del sistema es la siguiente:
 
 ### 1️⃣ Clonar el repositorio
 ```bash
-<<<<<<< HEAD
+
 # 1. Clonar el repositorio
 git clone https://github.com/javiperlo/script_ai.git
 cd script_ai
@@ -252,9 +271,4 @@ Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) par
 **👨‍💻 Desarrollado por [@javiperlo](https://github.com/javiperlo)**
 
 Made with ❤️ and ☕
-
 </div>
-=======
-git clone https://github.com/tuusuario/script_ai.git
-cd script_ai
->>>>>>> 2c196e8 (Subidos notebooks)
