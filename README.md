@@ -59,49 +59,16 @@ El desarrollo del proyecto sigue la metodología **CRISP-DM** (Cross-Industry St
 
 ---
 
-## 🛠️ Stack Tecnológico
+# 🛠️ Stack Tecnológico
 
-### Backend & API
-<div>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="50" height="50" alt="Python"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" width="50" height="50" alt="FastAPI"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" width="50" height="50" alt="Docker"/>
-</div>
+| **Categoría** | **Tecnologías** | **Descripción** |
+|----------------|-----------------|-----------------|
+| **Backend & API** | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="40" alt="Python"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" width="40" alt="FastAPI"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" width="40" alt="Docker"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/uvicorn/uvicorn-original.svg" width="40" alt="Uvicorn"/> | **Python 3.11** como lenguaje principal.<br>**FastAPI** para desarrollo de API REST.<br>**Docker** para contenedorización.<br>**Uvicorn** como servidor ASGI. |
+| **Machine Learning** | <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" width="60" alt="Scikit-Learn"/> <img src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Knime-logo.png" width="60" alt="KNIME"/> <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/XGBoost_logo.png" width="60" alt="XGBoost"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" width="40" alt="Pandas"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" width="40" alt="NumPy"/> | **Scikit-Learn** para preprocesamiento y pipelines.<br>**XGBoost** como modelo principal de predicción.<br>**Pandas** y **NumPy** para análisis de datos.<br>**Joblib** para serialización del modelo.<br>**KNIME** como entorno visual de modelado. |
+| **Frontend** | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" width="40" alt="HTML5"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="40" alt="JavaScript"/> | **HTML5** para la estructura del dashboard.<br>**JavaScript (ES6+)** para la lógica y consumo de la API. |
+| **Herramientas de Desarrollo** | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" width="40" alt="Git"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg" width="40" alt="Jupyter"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" width="40" alt="VSCode"/> | **Git** para control de versiones.<br>**Jupyter Notebook** para análisis exploratorio.<br>**VS Code** como entorno de desarrollo principal. |
 
-- **Python 3.11** - Lenguaje principal
-- **FastAPI** - Framework web de alto rendimiento
-- **Docker** - Contenedorización y despliegue
-- **Uvicorn** - Servidor ASGI
-
-### Machine Learning
-<div>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" width="70" height="50" alt="Scikit-Learn"/>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Knime-logo.png" width="70" height="50" alt="Knime"/>
-</div>
-
-- **Scikit-Learn** - Preprocessing y pipelines
-- **XGBoost** - Modelo de clasificación
-- **Pandas** - Manipulación de datos
-- **NumPy** - Operaciones numéricas
-- **Joblib** - Serialización de modelos
-- **KNIME** - Creación del modelo en interfaz gráfica
-
-
-### Frontend
-<div>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" width="50" height="50" alt="HTML5"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="50" height="50" alt="JavaScript"/>
-</div>
-
-- **HTML5** - Estructura del dashboard
-- **JavaScript (ES6+)** - Lógica del frontend
-
-### Herramientas de Desarrollo
-- **Git** - Control de versiones
-- **Jupyter Notebook** - Análisis exploratorio
-- **VS Code** - Editor de código
-
----
+___
 
 ## 🧩 Arquitectura del Sistema
 
