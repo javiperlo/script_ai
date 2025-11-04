@@ -16,7 +16,9 @@ COPY backend/requirements.txt .
 # Instala las librerías de Python
 # --no-cache-dir crea una imagen un poco más ligera
 RUN pip install --no-cache-dir -r requirements.txt
+
 COPY backend/ .
+
 # --- Fase 4: Copiar tu Aplicación ---
 # Ahora copia el resto de tu proyecto (tu código, la carpeta models)
 # al directorio /app dentro del contenedor
