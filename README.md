@@ -85,7 +85,7 @@ Asegúrate de tener instalado:
 
 ```bash
 # 1. Clonar el repositorio
-git clone https://github.com/tuusuario/script_ai.git
+git clone https://github.com/javiperlo/script_ai.git
 cd script_ai
 
 # 2. Construir la imagen Docker
