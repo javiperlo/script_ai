@@ -44,6 +44,21 @@ No solo creamos un modelo predictivo tradicional. Este proyecto va mucho más al
 
 ---
 
+## 🧭 Metodología CRISP-DM
+
+El desarrollo del proyecto sigue la metodología **CRISP-DM** (Cross-Industry Standard Process for Data Mining):
+
+| Fase | Descripción | Notebook |
+|------|-------------|----------|
+| 1️⃣ **Business Understanding** | Definición del problema y objetivos | [📓 Ver análisis](documentation/data_analysis.ipynb) |
+| 2️⃣ **Data Understanding** | Exploración y análisis de datos | [📓 Ver análisis](documentation/data_analysis.ipynb) |
+| 3️⃣ **Data Preparation** | Limpieza y transformación | [📓 Ver modelo](documentation/model_creation.ipynb) |
+| 4️⃣ **Modeling** | Entrenamiento de modelos | [📓 Ver modelo](documentation/model_creation.ipynb) |
+| 5️⃣ **Evaluation** | Validación y métricas | [📓 Ver modelo](documentation/model_creation.ipynb) |
+| 6️⃣ **Deployment** | Despliegue en producción | [📓 Ver modelo](documentation/model_creation.ipynb) |
+
+---
+
 ## 🛠️ Stack Tecnológico
 
 ### Backend & API
@@ -73,12 +88,10 @@ No solo creamos un modelo predictivo tradicional. Este proyecto va mucho más al
 <div>
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" width="50" height="50" alt="HTML5"/>
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="50" height="50" alt="JavaScript"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" width="50" height="50" alt="CSS3"/>
 </div>
 
 - **HTML5** - Estructura del dashboard
 - **JavaScript (ES6+)** - Lógica del frontend
-- **CSS3** - Estilos y diseño responsive
 
 ### Herramientas de Desarrollo
 - **Git** - Control de versiones
@@ -101,20 +114,7 @@ El sistema consta de tres componentes principales:
 
 ---
 
-## 🧭 Metodología CRISP-DM
 
-El desarrollo del proyecto sigue la metodología **CRISP-DM** (Cross-Industry Standard Process for Data Mining):
-
-| Fase | Descripción | Notebook |
-|------|-------------|----------|
-| 1️⃣ **Business Understanding** | Definición del problema y objetivos | [📓 Ver análisis](documentation/data_analysis.ipynb) |
-| 2️⃣ **Data Understanding** | Exploración y análisis de datos | [📓 Ver análisis](documentation/data_analysis.ipynb) |
-| 3️⃣ **Data Preparation** | Limpieza y transformación | [📓 Ver modelo](documentation/model_creation.ipynb) |
-| 4️⃣ **Modeling** | Entrenamiento de modelos | [📓 Ver modelo](documentation/model_creation.ipynb) |
-| 5️⃣ **Evaluation** | Validación y métricas | [📓 Ver modelo](documentation/model_creation.ipynb) |
-| 6️⃣ **Deployment** | Despliegue en producción | [📓 Ver modelo](documentation/model_creation.ipynb) |
-
----
 
 ## ✨ Características Principales
 
