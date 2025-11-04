@@ -8,7 +8,6 @@ FROM python:3.11-slim
 # A partir de aquí, todos los comandos se ejecutan en /app
 WORKDIR /app
 
-# --- Fase 3: Instalar Dependencias ---
 # Copia SÓLO el archivo de requisitos primero.
 # Esto aprovecha la caché de Docker: si no cambias las librerías,
 # no se volverán a instalar cada vez, haciendo builds más rápidos.
@@ -17,7 +16,7 @@ COPY backend/requirements.txt .
 # Instala las librerías de Python
 # --no-cache-dir crea una imagen un poco más ligera
 RUN pip install --no-cache-dir -r requirements.txt
-
+COPY backend/ .
 # --- Fase 4: Copiar tu Aplicación ---
 # Ahora copia el resto de tu proyecto (tu código, la carpeta models)
 # al directorio /app dentro del contenedor
@@ -37,5 +36,3 @@ EXPOSE 8000
 # main_completo:app: El archivo (main_completo.py) y el objeto (app)
 # -b 0.0.0.0:8000: Escucha en todas las IPs en el puerto 8000
 CMD ["uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8000"]
-
-
