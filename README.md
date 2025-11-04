@@ -2,6 +2,11 @@
 
 Este proyecto tiene como objetivo identificar a los clientes que están en **riesgo de abandonar el servicio** en un futuro cercano para poder ofrecerles **incentivos personalizados** (descuentos, mejoras de servicios, etc.) antes de que tomen la decisión de irse.
 
+<p align="center">
+  <img src="documentation/imgs/script_ai_project.png"/>
+</p>
+
+
 ---
 
 ## 🧭 Metodología CRISP-DM
