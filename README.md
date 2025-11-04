@@ -120,7 +120,6 @@ El sistema consta de tres componentes principales:
 
 Asegúrate de tener instalado:
 - **Docker** (versión 20.0 o superior)
-- **Docker Compose** (opcional, para orquestación)
 - **Git**
 
 ### 🚀 Opción 1: Ejecutar con Docker (Recomendado)
@@ -222,18 +221,6 @@ script_ai/
 | **Recall** | 71.2% |
 | **F1-Score** | 74.6% |
 | **ROC-AUC** | 0.87 |
-
----
-
-## 🔮 Próximas Mejoras
-
-- [ ] Integración con **Google Gemini** para generación de guiones con IA
-- [ ] Generación de imágenes con **Stable Diffusion**
-- [ ] Dashboard con **React** o **Streamlit**
-- [ ] Despliegue en la nube (**AWS**, **GCP** o **Azure**)
-- [ ] Sistema de monitoreo y logging
-- [ ] Tests automatizados
-- [ ] CI/CD con GitHub Actions
 
 ---
 
