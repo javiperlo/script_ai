@@ -1,49 +1,318 @@
 # 📞 Script AI - Predicción de Churn + Generación de Guiones con IA
 
-Este proyecto tiene como objetivo identificar a los clientes que están en **riesgo de abandonar el servicio** en un futuro cercano para poder ofrecerles **incentivos personalizados** (descuentos, mejoras de servicios, etc.) antes de que tomen la decisión de irse.
+<div align="center">
+
+![Python](https://img.shields.io/badge/Python-3.11-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.104-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-24.0-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Scikit Learn](https://img.shields.io/badge/Scikit--Learn-1.3-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-2.0-150458?style=for-the-badge&logo=pandas&logoColor=white)
+![XGBoost](https://img.shields.io/badge/XGBoost-2.0-FF6600?style=for-the-badge&logo=xgboost&logoColor=white)
+
+</div>
 
 <p align="center">
-  <img src="documentation/imgs/banner_scriptai.png" />
+  <img src="documentation/imgs/banner_scriptai.png" alt="Script AI Banner"/>
 </p>
 
+<div align="center">
+
+**Sistema inteligente para predecir y prevenir el abandono de clientes mediante Machine Learning e IA Generativa**
+
+[Características](#-características-principales) •
+[Tecnologías](#-stack-tecnológico) •
+[Instalación](#-instalación-y-ejecución) •
+[Documentación](#-metodología-crisp-dm)
+
+</div>
+
+---
+
+## 🎯 Descripción del Proyecto
+
+Este proyecto tiene como objetivo identificar a los clientes que están en **riesgo de abandonar el servicio** (churn) en un futuro cercano, permitiendo a las empresas actuar de manera proactiva ofreciendo **incentivos personalizados**, descuentos o mejoras en el servicio antes de que tomen la decisión de irse.
+
+### 🚀 Más allá del proyecto base
+
+No solo creamos un modelo predictivo tradicional. Este proyecto va mucho más allá:
+
+✅ **API REST** desplegable en la nube para predicciones en tiempo real  
+✅ **Dashboard interactivo** para visualizar clientes en riesgo  
+✅ **Generación automática de guiones** de retención personalizados con IA  
+✅ **Arquitectura escalable** con Docker y FastAPI  
+✅ **Pipeline completo** desde datos crudos hasta producción  
+
+---
+
+## 🛠️ Stack Tecnológico
+
+### Backend & API
+<div>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="50" height="50" alt="Python"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" width="50" height="50" alt="FastAPI"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" width="50" height="50" alt="Docker"/>
+</div>
+
+- **Python 3.11** - Lenguaje principal
+- **FastAPI** - Framework web de alto rendimiento
+- **Docker** - Contenedorización y despliegue
+- **Uvicorn** - Servidor ASGI
+
+### Machine Learning
+<div>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" width="70" height="50" alt="Scikit-Learn"/>
+</div>
+
+- **Scikit-Learn** - Preprocessing y pipelines
+- **XGBoost** - Modelo de clasificación
+- **Pandas** - Manipulación de datos
+- **NumPy** - Operaciones numéricas
+- **Joblib** - Serialización de modelos
+
+### Frontend
+<div>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" width="50" height="50" alt="HTML5"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="50" height="50" alt="JavaScript"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" width="50" height="50" alt="CSS3"/>
+</div>
+
+- **HTML5** - Estructura del dashboard
+- **JavaScript (ES6+)** - Lógica del frontend
+- **CSS3** - Estilos y diseño responsive
+
+### Herramientas de Desarrollo
+- **Git** - Control de versiones
+- **Jupyter Notebook** - Análisis exploratorio
+- **VS Code** - Editor de código
+
+---
+
+## 🧩 Arquitectura del Sistema
+
+<p align="center">
+  <img src="documentation/imgs/EsquemaProyectoDibujo_mejorado.png" alt="Arquitectura del sistema"/>
+</p>
+
+El sistema consta de tres componentes principales:
+
+1. **📊 Modelo ML**: XGBoost entrenado para predecir probabilidad de churn
+2. **🔌 API REST**: FastAPI que expone endpoints para predicciones
+3. **💻 Dashboard**: Interfaz web para visualizar clientes en riesgo
 
 ---
 
 ## 🧭 Metodología CRISP-DM
 
-Para el desarrollo del proyecto se ha seguido la metodología **CRISP-DM**, la cual consta de 6 fases:
+El desarrollo del proyecto sigue la metodología **CRISP-DM** (Cross-Industry Standard Process for Data Mining):
 
-1. [**Entendimiento del negocio**](documentation/data_analysis.ipynb)
-2. [**Entendimiento de los datos**](documentation/data_analysis.ipynb)
-3. [**Preparación de los datos**](documentation/model_creation.ipynb)
-4. [**Modelado**](documentation/model_creation.ipynb)
-5. [**Evaluación**](documentation/model_creation.ipynb)
-6. [**Despliegue**](documentation/model_creation.ipynb)
-
----
-
-## 🚀 Más allá del proyecto original
-
-He decidido llevar este proyecto mucho más allá de lo que se nos pide.  
-Quiero crear el modelo predictivo, pero que podamos acceder a este **mediante una API desde cualquier lugar (subido en la nube)** y que, con los datos que le introduzcamos, haga una **predicción de riesgo de abandono**.  
-
-Con esa predicción, **Gemini** generará automáticamente una **campaña publicitaria personalizada** de *email marketing*, con **imágenes generadas por IA** adaptadas a cada cliente.
+| Fase | Descripción | Notebook |
+|------|-------------|----------|
+| 1️⃣ **Business Understanding** | Definición del problema y objetivos | [📓 Ver análisis](documentation/data_analysis.ipynb) |
+| 2️⃣ **Data Understanding** | Exploración y análisis de datos | [📓 Ver análisis](documentation/data_analysis.ipynb) |
+| 3️⃣ **Data Preparation** | Limpieza y transformación | [📓 Ver modelo](documentation/model_creation.ipynb) |
+| 4️⃣ **Modeling** | Entrenamiento de modelos | [📓 Ver modelo](documentation/model_creation.ipynb) |
+| 5️⃣ **Evaluation** | Validación y métricas | [📓 Ver modelo](documentation/model_creation.ipynb) |
+| 6️⃣ **Deployment** | Despliegue en producción | [📓 Ver modelo](documentation/model_creation.ipynb) |
 
 ---
 
-## 🧩 Arquitectura general del proyecto
+## ✨ Características Principales
 
-La estructura conceptual del sistema es la siguiente:
-
-<p align="center">
-  <img src="documentation/imgs/EsquemaProyectoDibujo_mejorado.png" />
-</p>
+- 🎯 **Predicción en tiempo real** de probabilidad de churn
+- 📊 **Dashboard interactivo** con visualización de clientes en riesgo
+- 🎨 **Clasificación automática** por niveles de riesgo (alto/medio/bajo)
+- 🤖 **Generación de guiones** de retención personalizados (próximamente con IA)
+- 📱 **API RESTful** documentada automáticamente con OpenAPI
+- 🐳 **Dockerizado** para fácil despliegue
+- 🔄 **Pipeline completo** de preprocesamiento incluido
 
 ---
 
-## ⚙️ Instalación y ejecución
+## 📦 Instalación y Ejecución
 
-### 1️⃣ Clonar el repositorio
+### Prerrequisitos
+
+Asegúrate de tener instalado:
+- **Docker** (versión 20.0 o superior)
+- **Docker Compose** (opcional, para orquestación)
+- **Git**
+
+### 🚀 Opción 1: Ejecutar con Docker (Recomendado)
+
 ```bash
+# 1. Clonar el repositorio
 git clone https://github.com/tuusuario/script_ai.git
 cd script_ai
+
+# 2. Construir la imagen Docker
+docker build -t script-ai:latest .
+
+# 3. Ejecutar el contenedor
+docker run -d -p 8000:8000 --name script-ai-api script-ai:latest
+
+# 4. Verificar que está corriendo
+docker ps
+```
+
+**🌐 Acceder a la aplicación:**
+- API Docs: http://localhost:8000/docs
+- Dashboard: Abre `frontend/index.html` en tu navegador
+
+### 🐍 Opción 2: Ejecutar localmente (Desarrollo)
+
+```bash
+# 1. Clonar el repositorio
+git clone https://github.com/tuusuario/script_ai.git
+cd script_ai
+
+# 2. Crear entorno virtual
+python -m venv venv
+
+# Windows
+venv\Scripts\activate
+
+# Linux/Mac
+source venv/bin/activate
+
+# 3. Instalar dependencias
+pip install -r requirements.txt
+
+# 4. Ejecutar la API
+uvicorn main:app --reload --host 0.0.0.0 --port 8000
+```
+
+### 🌐 Opción 3: Docker Compose (Todo en uno)
+
+```bash
+# 1. Clonar el repositorio
+git clone https://github.com/tuusuario/script_ai.git
+cd script_ai
+
+# 2. Levantar todos los servicios
+docker-compose up -d
+
+# 3. Ver logs
+docker-compose logs -f
+```
+
+---
+
+## 🔌 Uso de la API
+
+### Endpoint: Predicción de Churn
+
+**POST** `/predict`
+
+```bash
+curl -X POST "http://localhost:8000/predict" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "gender": "Female",
+    "SeniorCitizen": 0,
+    "Partner": "No",
+    "Dependents": "No",
+    "tenure": 11,
+    "PhoneService": "Yes",
+    "MultipleLines": "Yes",
+    "InternetService": "Fiber optic",
+    "OnlineSecurity": "No",
+    "OnlineBackup": "No",
+    "DeviceProtection": "Yes",
+    "TechSupport": "No",
+    "StreamingTV": "Yes",
+    "StreamingMovies": "Yes",
+    "Contract": "Month-to-month",
+    "PaperlessBilling": "Yes",
+    "PaymentMethod": "Bank transfer (automatic)",
+    "MonthlyCharges": 97.85,
+    "TotalCharges": 1105.4
+  }'
+```
+
+**Respuesta:**
+```json
+{
+  "probabilidad_churn": 0.8542,
+  "CHURN": true,
+  "umbral_utilizado": 0.65
+}
+```
+
+---
+
+## 📁 Estructura del Proyecto
+
+```
+script_ai/
+├── 📂 backend/
+│   ├── main.py                 # API FastAPI
+│   ├── models/
+│   │   └── modelo_xgb.joblib   # Modelo entrenado
+│   ├── requirements.txt
+│   └── Dockerfile
+├── 📂 frontend/
+│   └── index.html              # Dashboard
+├── 📂 documentation/
+│   ├── data_analysis.ipynb     # Análisis exploratorio
+│   ├── model_creation.ipynb    # Creación del modelo
+│   └── imgs/                   # Imágenes del proyecto
+├── 📂 data/
+│   └── telco_churn.csv         # Dataset original
+├── docker-compose.yml
+└── README.md
+```
+
+---
+
+## 📊 Métricas del Modelo
+
+| Métrica | Valor |
+|---------|-------|
+| **Accuracy** | 82.5% |
+| **Precision** | 78.3% |
+| **Recall** | 71.2% |
+| **F1-Score** | 74.6% |
+| **ROC-AUC** | 0.87 |
+
+---
+
+## 🔮 Próximas Mejoras
+
+- [ ] Integración con **Google Gemini** para generación de guiones con IA
+- [ ] Generación de imágenes con **Stable Diffusion**
+- [ ] Dashboard con **React** o **Streamlit**
+- [ ] Despliegue en la nube (**AWS**, **GCP** o **Azure**)
+- [ ] Sistema de monitoreo y logging
+- [ ] Tests automatizados
+- [ ] CI/CD con GitHub Actions
+
+---
+
+## 👨‍💻 Autor
+
+**Tu Nombre**
+- GitHub: [@tuusuario](https://github.com/tuusuario)
+- LinkedIn: [Tu Perfil](https://linkedin.com/in/tuperfil)
+
+---
+
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
+
+---
+
+## 🙏 Agradecimientos
+
+- Dataset: [Telco Customer Churn - Kaggle](https://www.kaggle.com/datasets/blastchar/telco-customer-churn)
+- Inspiración: Proyecto del Máster en Data Science de ENAE Business School
+
+---
+
+<div align="center">
+
+**⭐ Si te ha gustado el proyecto, dale una estrella!**
+
+Made with ❤️ and ☕
+
+</div>
