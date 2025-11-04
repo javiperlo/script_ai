@@ -1,0 +1,220 @@
+/* styles.css - Minimalista y moderno para Call Center AI */
+
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root{
+  --bg: #f3f6ff;
+  --accent: #667eea;
+  --accent-2: #5563d6;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --success: #16a34a;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --glass: rgba(255,255,255,0.6);
+  --radius: 12px;
+  --shadow: 0 6px 18px rgba(20,23,39,0.06);
+}
+
+/* Body */
+html, body {
+  height: 100%;
+  background: linear-gradient(180deg, #e9eeff 0%, var(--bg) 100%);
+  color: #111827;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 28px;
+}
+
+/* Header */
+.header {
+  max-width: 1100px;
+  margin: 0 auto 22px;
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.header h1 {
+  font-size: 20px;
+  color: var(--accent-2);
+  letter-spacing: -0.3px;
+}
+
+.header p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Layout grid container */
+#grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 18px;
+  align-items: start;
+}
+
+/* Loading */
+.loading {
+  max-width: 1100px;
+  margin: 14px auto;
+  text-align: center;
+  color: var(--accent-2);
+  font-weight: 600;
+}
+
+/* Card */
+.card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), var(--card));
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: var(--shadow);
+  transition: transform .18s ease, box-shadow .18s ease;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover effect */
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(16,24,40,0.12);
+}
+
+/* Risk left border */
+.card.alto { border-left: 6px solid var(--danger); }
+.card.medio { border-left: 6px solid var(--warning); }
+.card.bajo { border-left: 6px solid var(--success); }
+
+/* Card small header */
+.card h3 {
+  font-size: 16px;
+  color: #111827;
+  margin-bottom: 4px;
+}
+
+/* Badge */
+.badge {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.badge.alto { background: #fff5f5; color: var(--danger); }
+.badge.medio { background: #fff7ed; color: #b45309; }
+.badge.bajo { background: #f0fdf4; color: #166534; }
+
+/* Probability big number */
+.prob {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--accent-2);
+  text-align: center;
+  margin: 6px 0 8px;
+}
+
+/* Small details */
+.card p {
+  color: #374151;
+  font-size: 13px;
+  line-height: 1.25;
+}
+
+/* Buttons */
+button {
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  transition: transform .12s ease, box-shadow .12s ease, opacity .12s ease;
+}
+
+button:active { transform: translateY(1px); }
+
+.btn-llamar {
+  background: var(--accent);
+  color: #fff;
+  margin-top: 8px;
+  width: 100%;
+  box-shadow: 0 6px 18px rgba(102,126,234,0.18);
+}
+
+.btn-llamar:hover { opacity: 0.95; }
+
+.btn-guion {
+  background: #10b981;
+  color: #fff;
+  margin-top: 8px;
+  width: 100%;
+  box-shadow: 0 6px 18px rgba(16,185,129,0.12);
+}
+
+.btn-guion:hover { opacity: 0.95; }
+
+/* Guion box (hidden by default) */
+.guion {
+  margin-top: 10px;
+  background: linear-gradient(90deg, #ffffff, #fbfbfb);
+  border-radius: 8px;
+  padding: 12px;
+  color: #0f172a;
+  font-size: 14px;
+  border-left: 4px solid var(--accent-2);
+  box-shadow: 0 4px 12px rgba(12,18,35,0.04);
+  display: none;
+  white-space: pre-wrap;
+}
+
+/* Small helper area at bottom of card */
+.card .meta {
+  margin-top: auto;
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 640px) {
+  body { padding: 16px; }
+  .header { padding: 14px; }
+  .prob { font-size: 22px; }
+  button { font-size: 13px; padding: 9px; }
+}
+
+/* Utility classes */
+.text-muted { color: var(--muted); font-size: 13px; }
+.center { text-align: center; }
+
+/* Tiny footer note */
+.footer-note {
+  max-width: 1100px;
+  margin: 18px auto 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+}
