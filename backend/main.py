@@ -150,7 +150,7 @@ async def generate_script(cliente: Cliente):
         enfoque = "refuerza la satisfacción del cliente y su buena decisión"
 
     prompt = f"""
-    Añade como header: {prob} en porcentaje. De la siguiente manera. Posibilidad CHURN: 83% (por) 
+    Añade como header: {prob} en porcentaje. De la siguiente manera. Posibilidad CHURN: 83%
     Eres un asistente experto en retención de clientes para un call center de telecomunicaciones.
     Tu tarea es generar un guion breve con 3 ideas claras y persuasivas (en formato de viñetas)
     que el agente pueda usar para convencer a {nombre} de seguir siendo cliente.

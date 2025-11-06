@@ -3,20 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/styles.css">
-    <title>Call Center AI</title>
-
+    <link rel="stylesheet" href="static/styles.css">
+    <title>Script AI</title>
 </head>
 
 <body>
     <div class="header">
-        <h1>📞 Call Center AI</h1>
+        <h1>📞 Script AI</h1>
         <p>Clientes con riesgo de abandono</p>
     </div>
 
     <div id="loading" class="loading">Cargando clientes...</div>
 
-    <div id="grid" class="grid"></div>
+    <div class="container" id="container"></div>
 
     <script>
         const API = 'http://localhost:8000';
@@ -117,110 +116,110 @@
                     TotalCharges: 4619.55
                 }
             },
-        {
-            nombre: "María García López",
-            probabilidad_churn: 0.9983383417129517,
-            datos: {
-                gender: "Female",
-                SeniorCitizen: 0,
-                Partner: "No",
-                Dependents: "No",
-                tenure: 1,
-                PhoneService: "Yes",
-                MultipleLines: "Yes",
-                InternetService: "Fiber optic",
-                OnlineSecurity: "No",
-                OnlineBackup: "No",
-                DeviceProtection: "No",
-                TechSupport: "No",
-                StreamingTV: "Yes",
-                StreamingMovies: "Yes",
-                Contract: "Month-to-month",
-                PaperlessBilling: "Yes",
-                PaymentMethod: "Electronic check",
-                MonthlyCharges: 93.85,
-                TotalCharges: 93.85
+            {
+                nombre: "María García López",
+                probabilidad_churn: 0.9983383417129517,
+                datos: {
+                    gender: "Female",
+                    SeniorCitizen: 0,
+                    Partner: "No",
+                    Dependents: "No",
+                    tenure: 1,
+                    PhoneService: "Yes",
+                    MultipleLines: "Yes",
+                    InternetService: "Fiber optic",
+                    OnlineSecurity: "No",
+                    OnlineBackup: "No",
+                    DeviceProtection: "No",
+                    TechSupport: "No",
+                    StreamingTV: "Yes",
+                    StreamingMovies: "Yes",
+                    Contract: "Month-to-month",
+                    PaperlessBilling: "Yes",
+                    PaymentMethod: "Electronic check",
+                    MonthlyCharges: 93.85,
+                    TotalCharges: 93.85
+                }
+            },
+            {
+                nombre: "Laura Martínez Sánchez",
+                probabilidad_churn: 0.997173547744751,
+                datos: {
+                    gender: "Female",
+                    SeniorCitizen: 0,
+                    Partner: "No",
+                    Dependents: "Yes",
+                    tenure: 1,
+                    PhoneService: "Yes",
+                    MultipleLines: "Yes",
+                    InternetService: "Fiber optic",
+                    OnlineSecurity: "No",
+                    OnlineBackup: "No",
+                    DeviceProtection: "No",
+                    TechSupport: "No",
+                    StreamingTV: "Yes",
+                    StreamingMovies: "Yes",
+                    Contract: "Month-to-month",
+                    PaperlessBilling: "Yes",
+                    PaymentMethod: "Electronic check",
+                    MonthlyCharges: 89.35,
+                    TotalCharges: 89.35
+                }
+            },
+            {
+                nombre: "Carlos Rodríguez Pérez",
+                probabilidad_churn: 0.9970006346702576,
+                datos: {
+                    gender: "Male",
+                    SeniorCitizen: 0,
+                    Partner: "No",
+                    Dependents: "No",
+                    tenure: 1,
+                    PhoneService: "Yes",
+                    MultipleLines: "Yes",
+                    InternetService: "Fiber optic",
+                    OnlineSecurity: "No",
+                    OnlineBackup: "No",
+                    DeviceProtection: "No",
+                    TechSupport: "No",
+                    StreamingTV: "No",
+                    StreamingMovies: "Yes",
+                    Contract: "Month-to-month",
+                    PaperlessBilling: "Yes",
+                    PaymentMethod: "Electronic check",
+                    MonthlyCharges: 86.6,
+                    TotalCharges: 86.6
+                }
+            },
+            {
+                nombre: "Isabel Fernández Gómez",
+                probabilidad_churn: 0.9969839453697205,
+                datos: {
+                    gender: "Female",
+                    SeniorCitizen: 1,
+                    Partner: "No",
+                    Dependents: "No",
+                    tenure: 2,
+                    PhoneService: "Yes",
+                    MultipleLines: "Yes",
+                    InternetService: "Fiber optic",
+                    OnlineSecurity: "No",
+                    OnlineBackup: "No",
+                    DeviceProtection: "Yes",
+                    TechSupport: "No",
+                    StreamingTV: "No",
+                    StreamingMovies: "Yes",
+                    Contract: "Month-to-month",
+                    PaperlessBilling: "Yes",
+                    PaymentMethod: "Electronic check",
+                    MonthlyCharges: 88.55,
+                    TotalCharges: 179.25
+                }
             }
-        },
-        {
-            nombre: "Laura Martínez Sánchez",
-            probabilidad_churn: 0.997173547744751,
-            datos: {
-                gender: "Female",
-                SeniorCitizen: 0,
-                Partner: "No",
-                Dependents: "Yes",
-                tenure: 1,
-                PhoneService: "Yes",
-                MultipleLines: "Yes",
-                InternetService: "Fiber optic",
-                OnlineSecurity: "No",
-                OnlineBackup: "No",
-                DeviceProtection: "No",
-                TechSupport: "No",
-                StreamingTV: "Yes",
-                StreamingMovies: "Yes",
-                Contract: "Month-to-month",
-                PaperlessBilling: "Yes",
-                PaymentMethod: "Electronic check",
-                MonthlyCharges: 89.35,
-                TotalCharges: 89.35
-            }
-        },
-        {
-            nombre: "Carlos Rodríguez Pérez",
-            probabilidad_churn: 0.9970006346702576,
-            datos: {
-                gender: "Male",
-                SeniorCitizen: 0,
-                Partner: "No",
-                Dependents: "No",
-                tenure: 1,
-                PhoneService: "Yes",
-                MultipleLines: "Yes",
-                InternetService: "Fiber optic",
-                OnlineSecurity: "No",
-                OnlineBackup: "No",
-                DeviceProtection: "No",
-                TechSupport: "No",
-                StreamingTV: "No",
-                StreamingMovies: "Yes",
-                Contract: "Month-to-month",
-                PaperlessBilling: "Yes",
-                PaymentMethod: "Electronic check",
-                MonthlyCharges: 86.6,
-                TotalCharges: 86.6
-            }
-        },
-        {
-            nombre: "Isabel Fernández Gómez",
-            probabilidad_churn: 0.9969839453697205,
-            datos: {
-                gender: "Female",
-                SeniorCitizen: 1,
-                Partner: "No",
-                Dependents: "No",
-                tenure: 2,
-                PhoneService: "Yes",
-                MultipleLines: "Yes",
-                InternetService: "Fiber optic",
-                OnlineSecurity: "No",
-                OnlineBackup: "No",
-                DeviceProtection: "Yes",
-                TechSupport: "No",
-                StreamingTV: "No",
-                StreamingMovies: "Yes",
-                Contract: "Month-to-month",
-                PaperlessBilling: "Yes",
-                PaymentMethod: "Electronic check",
-                MonthlyCharges: 88.55,
-                TotalCharges: 179.25
-            }
-        }
         ];
 
         function cargar() {
-            const grid = document.getElementById("grid");
+            const container = document.getElementById("container");
             document.getElementById("loading").style.display = "none";
 
             clientes.forEach((cliente, index) => {
@@ -238,24 +237,28 @@
                     else if (prob > 0.45) nivel = "medio";
                     else nivel = "bajo"
 
-                    const card = document.createElement("div");
-                    card.className = `card ${nivel}`;
+                    const row = document.createElement("div");
+                    row.className = "cliente-row";
 
-                    card.innerHTML = `
-                        <h3>${cliente.nombre}</h3>
-                        <span class="badge ${nivel}">${nivel.toUpperCase()}</span>
-                        <div class="prob">${(prob * 100).toFixed(1)}%</div>
-                        <p><strong>Contrato:</strong> ${cliente.datos.Contract}</p>
-                        <p><strong>Meses:</strong> ${cliente.datos.tenure}</p>
-                        <p><strong>Cargo:</strong> $${cliente.datos.MonthlyCharges}</p>
-                        <button class="btn-llamar">📞 Llamar</button>
-                        <button class="btn-guion">Generar Guión</button>
+                    row.innerHTML = `
+                        <div class="card ${nivel}">
+                            <h3>${cliente.nombre}</h3>
+                            <span class="badge ${nivel}">${nivel.toUpperCase()}</span>
+                            <div class="prob">${(prob * 100).toFixed(1)}%</div>
+                            <p><strong>Contrato:</strong> ${cliente.datos.Contract}</p>
+                            <p><strong>Meses:</strong> ${cliente.datos.tenure}</p>
+                            <p><strong>Cargo:</strong> $${cliente.datos.MonthlyCharges}</p>
+                            <div class="buttons">
+                                <button class="btn-llamar">📞 Llamar</button>
+                                <button class="btn-guion">Generar Guión</button>
+                            </div>
+                        </div>
                         <div class="guion" id="guion-${index}">Generando guión...</div>
                     `;
 
-                    grid.appendChild(card);
+                    container.appendChild(row);
 
-                    const botonGuion = card.querySelector(".btn-guion");
+                    const botonGuion = row.querySelector(".btn-guion");
                     botonGuion.addEventListener("click", async () => {
                         const divGuion = document.getElementById(`guion-${index}`);
                         divGuion.style.display = "block";
