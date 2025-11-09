@@ -99,13 +99,17 @@ El sistema consta de tres componentes principales:
 git clone https://github.com/javiperlo/script_ai.git
 cd script_ai
 
-# 2. Construir la imagen Docker
+# 2. Pegar tu Gemini API KEY en el .env
+
+cp .env.example .env
+
+# 3. Construir la imagen Docker
 docker build -t script-ai:latest .
 
-# 3. Ejecutar el contenedor
+# 4. Ejecutar el contenedor
 docker run -d -p 8000:8000 --name script-ai-api script-ai:latest
 
-# 4. Verificar que está corriendo
+# 5. Verificar que está corriendo
 docker ps
 ```
 
