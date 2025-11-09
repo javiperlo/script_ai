@@ -58,7 +58,6 @@ async def serve_frontend():
         raise HTTPException(status_code=404, detail="index.html no encontrado")
     return FileResponse(index_path)
 
-# --- 4. Definir Entrada ---
 class DatosCliente(BaseModel):
     gender: str
     SeniorCitizen: int
