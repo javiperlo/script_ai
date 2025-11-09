@@ -188,11 +188,9 @@ curl -X POST "http://localhost:8000/generate_script" \
 
 | Métrica | Valor |
 |---------|-------|
-| **Accuracy** | 82.5% |
-| **Precision** | 78.3% |
-| **Recall** | 71.2% |
-| **F1-Score** | 74.6% |
-| **ROC-AUC** | 0.87 |
+| **Accuracy** | 72.2% |
+| **Precision** | 48.7% |
+| **Recall** | 90.9% |
 
 ---
 
