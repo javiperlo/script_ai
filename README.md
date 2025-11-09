@@ -155,8 +155,6 @@ curl -X POST "http://localhost:8000/predict" \
 ```json
 {
   "probabilidad_churn": 0.8542,
-  "CHURN": true,
-  "umbral_utilizado": 0.65
 }
 ```
 ### Endpoint: Generar Script con Gemini
@@ -168,15 +166,16 @@ curl -X POST "http://localhost:8000/generate_script" \
   -H "Content-Type: application/json" \
   -d '{
     "nombre": "",
-    "edad": 0,
-    "probabilidad_churn": "No",
+    "probabilidad_churn": "",
+    "tenure": "",
+    "monthly_charges": "",
+    "contract": ""
   }'
-```
 
 **Respuesta**
 ```json
 {
-  "guion": "" 
+  "text": "" 
 }
 ```
 
