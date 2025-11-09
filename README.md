@@ -172,6 +172,8 @@ curl -X POST "http://localhost:8000/generate_script" \
     "contract": ""
   }'
 
+```
+
 **Respuesta**
 ```json
 {
