@@ -12,7 +12,7 @@
 </div>
 
 <p align="center">
-  <img src="documentation/imgs/banner_scriptai.png" alt="Script AI Banner"/>
+  <img src="documentation/imgs/esquema.png" alt="Script AI Banner"/>
 </p>
 
 <div align="center">
