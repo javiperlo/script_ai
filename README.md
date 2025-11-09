@@ -12,7 +12,7 @@
 </div>
 
 <p align="center">
-  <img src="documentation/imgs/esquema.png" alt="Script AI Banner"/>
+  <img src="documentation/imgs/banner_scriptai.png" alt="Script AI Banner"/>
 </p>
 
 <div align="center">
@@ -61,7 +61,7 @@ El desarrollo del proyecto sigue la metodología **CRISP-DM** (Cross-Industry St
 ## 🧩 Arquitectura del Sistema
 
 <p align="center">
-  <img src="documentation/imgs/EsquemaProyectoDibujo_mejorado.png" alt="Arquitectura del sistema"/>
+  <img src="documentation/imgs/esquema.png" alt="Arquitectura del sistema"/>
 </p>
 
 El sistema consta de tres componentes principales:
