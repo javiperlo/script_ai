@@ -109,14 +109,9 @@ async def predecir(datos: DatosCliente):
 
         probabilidades = modelo_cargado.predict_proba(cliente_df_final)
         prob_churn = probabilidades[0][1]
-
-        THREESHOLD = 0.65
-        churn = float(prob_churn) > THREESHOLD
         
         return {
-            "probabilidad_churn": float(round(prob_churn, 4)),
-            "CHURN": churn,
-            "umbral_utilizado": THREESHOLD
+            "probabilidad_churn": float(round(prob_churn, 4))
         }
 
     except Exception as e:
@@ -159,13 +154,13 @@ async def generate_script(cliente: Cliente):
     Tu tarea es redactar un correo electrónico breve y personalizado dirigido a {nombre}, con un máximo de 3 párrafos cortos,
     para persuadirle de seguir siendo cliente de ConectaTel.
 
-    👉 Datos relevantes del cliente:
+    Datos relevantes del cliente:
     - Probabilidad estimada de abandono: {(prob * 100):.1f}%
     - Antigüedad como cliente: {tenure} meses
     - Pago mensual: {monthly_charges} €
     - Tipo de contrato: {contract}
 
-    📋 Instrucciones específicas:
+    Instrucciones específicas:
     - Cada párrafo debe ser concreto, amable y fácil de leer.
     - Destaca beneficios reales de ConectaTel: ahorro, comodidad, atención personalizada, tecnología, soporte técnico, servicios combinados, etc.
     - Mantén un tono {tono} y enfoque {enfoque}.
@@ -175,7 +170,7 @@ async def generate_script(cliente: Cliente):
     - No pongas ninguna introducción ni conclusión extra.
     - No incluyas "Aquí está tu respuesta" ni encabezados de Asunto.
 
-    🎯 Objetivo:
+    Objetivo:
     Que {nombre} sienta que quedarse con ConectaTel es su mejor opción y se sienta valorado.
     """
 
