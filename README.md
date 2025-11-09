@@ -115,7 +115,6 @@ docker ps
 
 **🌐 Acceder a la aplicación:**
 - API Docs: http://localhost:8000/docs
-- Dashboard: Abre `frontend/index.html` en tu navegador
 
 ---
 
