@@ -127,17 +127,20 @@ async def predecir(datos: DatosCliente):
 
 class Cliente(BaseModel):
     nombre: str
-    edad: int
+    tenure: float
+    monthly_charges: float
+    contract: str
     probabilidad_churn: float
     
 
 # Creamos el endpoint que recibirá el json
-
 @app.post("/generate_script")
 async def generate_script(cliente: Cliente):
     nombre = cliente.nombre
-    edad = cliente.edad
     prob = cliente.probabilidad_churn
+    tenure = cliente.tenure
+    monthly_charges = cliente.monthly_charges
+    contract = cliente.contract
 
     if prob > 0.65:
         tono = "urgente y muy persuasivo"
@@ -150,26 +153,30 @@ async def generate_script(cliente: Cliente):
         enfoque = "refuerza la satisfacción del cliente y su buena decisión"
 
     prompt = f"""
-    Añade como header: {prob} en porcentaje. De la siguiente manera. Posibilidad CHURN: 83%
-    Eres un asistente experto en retención de clientes para un call center de telecomunicaciones.
-    Tu tarea es generar un guion breve con 3 ideas claras y persuasivas (en formato de viñetas)
-    que el agente pueda usar para convencer a {nombre} de seguir siendo cliente.
+    Eres un asistente experto en retención de clientes para una empresa de telecomunicaciones llamada ConectaTel,
+    que ofrece servicios de telefonía fija, móvil e Internet (Fibra Óptica y DSL).
+
+    Tu tarea es redactar un correo electrónico breve y personalizado dirigido a {nombre}, con un máximo de 3 párrafos cortos,
+    para persuadirle de seguir siendo cliente de ConectaTel.
 
     👉 Datos relevantes del cliente:
-    - Edad aproximada: {edad} años
     - Probabilidad estimada de abandono: {(prob * 100):.1f}%
+    - Antigüedad como cliente: {tenure} meses
+    - Pago mensual: {monthly_charges} €
+    - Tipo de contrato: {contract}
 
     📋 Instrucciones específicas:
-    - Crea exactamente 3 bullet points (uno por línea, con "•" al inicio).
-    - Cada punto debe ser concreto, amable y fácil de decir por teléfono.
-    - Enfócate en beneficios reales (ahorro, comodidad, atención personalizada, tecnología, soporte, etc.).
-    - Usa un tono {tono}, y {enfoque}.
-    - No incluyas frases introductorias ni conclusiones.
-    - No uses lenguaje técnico, sino cercano y convincente.
-    - No repitas ideas.
+    - Cada párrafo debe ser concreto, amable y fácil de leer.
+    - Destaca beneficios reales de ConectaTel: ahorro, comodidad, atención personalizada, tecnología, soporte técnico, servicios combinados, etc.
+    - Mantén un tono {tono} y enfoque {enfoque}.
+    - Evita lenguaje técnico o formal excesivo, hazlo cercano y convincente.
+    - Incluye una propuesta de valor clara o incentivo para quedarse.
+    - No repitas ideas entre los párrafos.
+    - No pongas ninguna introducción ni conclusión extra.
+    - No incluyas "Aquí está tu respuesta" ni encabezados de Asunto.
 
     🎯 Objetivo:
-    Que {nombre} sienta que quedarse con la empresa es su mejor opción y se sienta valorado.
+    Que {nombre} sienta que quedarse con ConectaTel es su mejor opción y se sienta valorado.
     """
 
     model = genai.GenerativeModel("gemini-2.5-pro")

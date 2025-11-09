@@ -1,4 +1,4 @@
-# 📞 Script AI - Predicción de Churn + Generación de Guiones con IA
+# 📞 Script AI - Predicción de Churn + Generación de Mails con IA
 
 <div align="center">
 
@@ -38,7 +38,7 @@ No solo creamos un modelo predictivo tradicional. Este proyecto va mucho más al
 
 ✅ **API REST** desplegable para hacer predicciones en tiempo real  
 ✅ **Dashboard interactivo** para visualizar clientes en riesgo  
-✅ **Generación automática de guiones** de retención personalizados con IA  
+✅ **Generación automática de mails** de retención personalizados con IA  
 ✅ **Arquitectura escalable** con Docker y FastAPI  
 
 ---
