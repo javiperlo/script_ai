@@ -54,7 +54,7 @@ El desarrollo del proyecto sigue la metodología **CRISP-DM** (Cross-Industry St
 | 3️⃣ **Data Preparation** | Limpieza y transformación | [📓 Ver modelo](documentation/model_creation.ipynb) |
 | 4️⃣ **Modeling** | Entrenamiento de modelos | [📓 Ver modelo](documentation/model_creation.ipynb) |
 | 5️⃣ **Evaluation** | Validación y métricas | [📓 Ver modelo](documentation/model_creation.ipynb) |
-| 6️⃣ **Deployment** | Despliegue en producción | [📓 Ver modelo](documentation/model_creation.ipynb) |
+| 6️⃣ **Deployment** | Despliegue en producción | |
 
 ---
 
@@ -210,8 +210,6 @@ ___
 Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
 
 ---
-
-
 
 <div align="center">
 
